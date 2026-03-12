@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(grep -iE '\\\\.\\(mp4|mov|webm|avi|mkv\\)$')",
-      "Bash(sips -z 32 64 neues_logo.png --out cursor.png)"
+      "Bash(sips -z 32 64 neues_logo.png --out cursor.png)",
+      "Bash(git checkout:*)",
+      "Bash(git mv:*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' -e 's|href=\"\"styles\\\\.css\"\"|href=\"\"assets/css/styles.css\"\"|g' -e \"s|url\\(''cursor_right\\\\.png''\\)|url\\(''assets/img/cursor_right.png''\\)|g\" -e \"s|url\\(''cursor\\\\.png''\\)|url\\(''assets/img/cursor.png''\\)|g\" -e 's|src=\"\"neues_logo\\\\.png\"\"|src=\"\"assets/img/neues_logo.png\"\"|g' -e 's|src=\"\"paul\\\\.png\"\"|src=\"\"assets/img/paul.png\"\"|g' -e 's|src=\"\"dennis\\\\.png\"\"|src=\"\"assets/img/dennis.png\"\"|g' -e 's|src=\"\"Imagefilm_Erstellung_für_SunfishDesk\\\\.mp4\"\"|src=\"\"assets/video/imagefilm.mp4\"\"|g' \"$f\")",
+      "Bash(done)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
