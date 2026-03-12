@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -iE '\\\\.\\(mp4|mov|webm|avi|mkv\\)$')",
+      "Bash(sips -z 32 64 neues_logo.png --out cursor.png)"
+    ]
+  }
+}

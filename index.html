@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunfishDesk – Der intelligente Kern Ihres Supports</title>
+  <meta name="description" content="SunfishDesk entwickelt moderne Helpdesk-Systeme, Wissensdatenbanken und Support-Plattformen für strukturierte, effiziente Serviceprozesse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ════ NAVIGATION ════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="neues_logo.png" alt="SunfishDesk Logo">
+      <span class="nav-logo-text">SunfishDesk</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Startseite</a></li>
+      <li class="has-dropdown">
+        <a href="#leistungen">Leistungen</a>
+        <ul class="dropdown">
+          <li><a href="leistungen/helpdesk-systeme.html">Helpdesk-Systeme</a></li>
+          <li><a href="leistungen/wissensdatenbanken.html">Wissensdatenbanken</a></li>
+          <li><a href="leistungen/serviceportale.html">Interne Serviceportale</a></li>
+          <li><a href="leistungen/prozessdigitalisierung.html">Prozessdigitalisierung</a></li>
+          <li><a href="leistungen/support-workflows.html">Support-Workflows</a></li>
+          <li><a href="leistungen/automatisierungen.html">Automatisierungen</a></li>
+          <li><a href="leistungen/informationsverwaltung.html">Informationsverwaltung</a></li>
+          <li><a href="leistungen/individuelle-software.html">Individuelle Software</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">Über uns</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta-d">
+      <a href="kontakt.html" class="btn btn-primary" style="padding:.7rem 1.4rem;font-size:.875rem;">Kontakt aufnehmen</a>
+    </div>
+    <button class="hamburger" id="hbg" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mmenu">
+  <a href="index.html">Startseite</a>
+  <span class="mm-section">Leistungen</span>
+  <a href="leistungen/helpdesk-systeme.html">→ Helpdesk-Systeme</a>
+  <a href="leistungen/wissensdatenbanken.html">→ Wissensdatenbanken</a>
+  <a href="leistungen/serviceportale.html">→ Interne Serviceportale</a>
+  <a href="leistungen/prozessdigitalisierung.html">→ Prozessdigitalisierung</a>
+  <a href="leistungen/support-workflows.html">→ Support-Workflows</a>
+  <a href="leistungen/automatisierungen.html">→ Automatisierungen</a>
+  <a href="leistungen/informationsverwaltung.html">→ Informationsverwaltung</a>
+  <a href="leistungen/individuelle-software.html">→ Individuelle Software</a>
+  <a href="#about" onclick="closeMM()">Über uns</a>
+  <a href="#team"  onclick="closeMM()">Team</a>
+  <a href="kontakt.html">Kontakt aufnehmen</a>
+</div>
+
+<!-- ════ HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <svg class="hero-fish" viewBox="0 0 560 440" fill="white" aria-hidden="true">
+    <ellipse cx="240" cy="220" rx="195" ry="155"/>
+    <path d="M415 220 Q480 130 520 75 Q498 165 520 220 Q498 278 520 368 Q480 312 415 220Z"/>
+    <path d="M60 220 Q0 130 -25 75 Q0 165 -22 220 Q0 278 -22 368 Q12 312 60 220Z"/>
+    <path d="M220 65 Q240 15 265 -5 Q252 45 272 65Z"/>
+    <path d="M220 375 Q240 425 265 445 Q252 395 272 375Z"/>
+    <ellipse cx="375" cy="192" rx="22" ry="22"/>
+  </svg>
+  <div class="container">
+    <div>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Modernes Helpdesk- &amp; Wissenssystem
+      </div>
+      <h1 class="display">Der intelligente<br>Kern Ihres <span class="accent">Supports.</span></h1>
+      <p class="hero-sub body-lg">SunfishDesk verbindet strukturiertes Wissensmanagement mit leistungsstarken Helpdesk-Prozessen – für Organisationen, die Klarheit als strategischen Vorteil begreifen.</p>
+      <div class="hero-actions">
+        <a href="#leistungen" class="btn btn-primary">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Leistungen entdecken
+        </a>
+        <a href="kontakt.html" class="btn btn-ghost">Kontakt aufnehmen</a>
+      </div>
+    </div>
+    <div class="hero-card-wrap" style="display:flex;justify-content:flex-end;">
+      <div class="hero-card">
+        <div class="hero-card-bar">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+          <span class="hc-title">SunfishDesk · Dashboard</span>
+        </div>
+        <div class="hc-row"><span class="hc-lbl">Offene Tickets</span><span class="hc-val">12 <span class="badge badge-g">↓ 18 %</span></span></div>
+        <div class="hc-row"><span class="hc-lbl">Ø Lösungszeit</span><span class="hc-val">2,4 Std. <span class="badge badge-g">optimal</span></span></div>
+        <div class="hc-row"><span class="hc-lbl">Wissensbasis</span><span class="hc-val">284 Artikel <span class="badge badge-b">aktiv</span></span></div>
+        <div class="hc-row"><span class="hc-lbl">Nutzerzufriedenheit</span><span class="hc-val">97,3 % <span class="badge badge-g">↑ Trend</span></span></div>
+        <div class="hc-row"><span class="hc-lbl">Automationsquote</span><span class="hc-val">63 % <span class="badge badge-b">aktiv</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <span class="trust-item">Helpdesk-Systeme</span>
+    <span class="trust-item">Wissensmanagement</span>
+    <span class="trust-item">Prozessdigitalisierung</span>
+    <span class="trust-item">Support-Automation</span>
+    <span class="trust-item">Serviceportale</span>
+    <span class="trust-item">IT-Strukturierung</span>
+    <span class="trust-item">Informationsarchitektur</span>
+    <span class="trust-item">Teamkommunikation</span>
+    <span class="trust-item">Helpdesk-Systeme</span>
+    <span class="trust-item">Wissensmanagement</span>
+    <span class="trust-item">Prozessdigitalisierung</span>
+    <span class="trust-item">Support-Automation</span>
+    <span class="trust-item">Serviceportale</span>
+    <span class="trust-item">IT-Strukturierung</span>
+    <span class="trust-item">Informationsarchitektur</span>
+    <span class="trust-item">Teamkommunikation</span>
+  </div>
+</div>
+
+<!-- ════ IMAGEFILM ══════════════════════════════════════════════ -->
+<section style="padding:5rem 0;position:relative;" class="glow-center">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem;">
+      <span class="label">Imagefilm</span>
+      <h2 class="h2" style="margin-bottom:.75rem;">SunfishDesk in Bewegung.</h2>
+      <p style="color:rgba(255,255,255,.55);max-width:520px;margin:0 auto;">Was SunfishDesk ausmacht – in einem Film.</p>
+    </div>
+    <div class="reveal d1" style="
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:0 32px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(8,145,178,.15);
+      background:#000;
+      max-width:960px;
+      margin:0 auto;
+    ">
+      <!-- Teal glow behind video -->
+      <div style="
+        position:absolute;inset:-40px;
+        background:radial-gradient(ellipse at 50% 50%,rgba(8,145,178,.18) 0%,transparent 65%);
+        pointer-events:none;z-index:0;
+      "></div>
+      <video
+        controls
+        preload="metadata"
+        style="width:100%;display:block;position:relative;z-index:1;aspect-ratio:16/9;object-fit:cover;"
+        poster=""
+      >
+        <source src="Imagefilm_Erstellung_für_SunfishDesk.mp4" type="video/mp4">
+        Ihr Browser unterstützt dieses Videoformat nicht.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ═════════════════════════════════════════════════ -->
+<section class="section glow-right" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-visual-card">
+          <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.4rem;">
+            <svg width="22" height="22" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;">System Status</span>
+          </div>
+          <h3>Alles im Blick.</h3>
+          <p>Wissensmanagement &amp; Helpdesk – zentral, strukturiert, skalierbar.</p>
+          <div class="metrics">
+            <div class="metric"><div class="metric-v">100 %</div><div class="metric-l">Verfügbarkeit</div></div>
+            <div class="metric"><div class="metric-v">&lt; 2 h</div><div class="metric-l">Ø Response-Zeit</div></div>
+            <div class="metric"><div class="metric-v">8 +</div><div class="metric-l">Module verfügbar</div></div>
+            <div class="metric"><div class="metric-v">0</div><div class="metric-l">Informationslücken</div></div>
+          </div>
+        </div>
+        <div class="about-sub-card">
+          <div class="sub-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div style="font-size:.84rem;font-weight:600;color:#fff;">Strukturiert. Skalierbar. Verlässlich.</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.45);">Entwickelt für den echten Betrieb.</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content reveal d2">
+        <span class="label">Über SunfishDesk</span>
+        <h2 class="h2">Software mit Substanz – für Prozesse, die wirklich funktionieren.</h2>
+        <p>SunfishDesk ist kein Standardprodukt. Es ist eine Antwort auf ein konkretes Problem: In vielen Organisationen fehlt eine zentrale, zuverlässige Infrastruktur für Wissensmanagement, interne Kommunikation und strukturierte Supportprozesse.</p>
+        <p>Wir entwickeln moderne Softwarelösungen, die diese Lücke schließen – durchdacht, skalierbar und mit dem Fokus auf echte Nutzbarkeit im Alltag. Keine aufgeblähten Feature-Listen, sondern Systeme, die genau das tun, was sie sollen: Struktur schaffen, Prozesse beschleunigen und Teams entlasten.</p>
+        <p>SunfishDesk steht für Softwareentwicklung mit klarer Haltung: Wir bauen Dinge, die halten. Systeme, die wachsen. Interfaces, die Menschen gerne benutzen.</p>
+        <div class="name-story">
+          <strong>Warum „SunfishDesk"?</strong>
+          <p>Der Ocean Sunfish – Mola mola – ist das größte Knochenfischtier der Welt: ruhig, beeindruckend effizient, mit einer Tiefe, die man nicht auf den ersten Blick sieht. SunfishDesk steht für genau diese Qualität – ruhige Stärke, klare Struktur und ein System, das trägt, egal wie komplex die Anforderungen werden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ HISTORY ════════════════════════════════════════════════ -->
+<section class="section section-alt glow-left" id="geschichte">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Firmengeschichte</span>
+      <h2 class="h2">Von der Idee zur echten Lösung.</h2>
+      <p>Was als praxisnahes Softwareprojekt begann, wurde zu einer klaren Vision für moderne Supportinfrastruktur.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-box reveal"><div class="tl-year">2023 — Ausgangspunkt</div><h3>Die Lücke wird sichtbar</h3><p>Im Rahmen eines Praxisprojekts erkennen Paul Lang und Dennis Singer, dass selbst gut aufgestellte Teams ohne strukturierte Wissenssysteme ineffizient arbeiten. Tickets verschwinden in E-Mail-Threads, Wissen ist nirgends dokumentiert, Prozesse laufen redundant ab.</p></div>
+        <div class="tl-dot"></div><div></div>
+      </div>
+      <div class="tl-item">
+        <div></div><div class="tl-dot"></div>
+        <div class="tl-box tl-right reveal d1"><div class="tl-year">2023 — Konzeptphase</div><h3>Der erste Entwurf</h3><p>Aus einer fundierten Anforderungsanalyse entsteht das erste Konzept: ein zentrales Helpdesk-System mit integrierter Wissensdatenbank und klarer Informationsarchitektur. Der Name SunfishDesk wird geboren – als Symbol für ruhige Stärke und verborgene Tiefe.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-box reveal"><div class="tl-year">2024 — Entwicklung</div><h3>Vom Prototyp zum System</h3><p>Die ersten funktionsfähigen Module entstehen: Ticketverwaltung, interne Wissensbasis und ein rollenbasiertes Nutzersystem. Feedback aus der Praxis fließt direkt in die Entwicklung ein. SunfishDesk beginnt, echte Probleme zu lösen.</p></div>
+        <div class="tl-dot"></div><div></div>
+      </div>
+      <div class="tl-item">
+        <div></div><div class="tl-dot"></div>
+        <div class="tl-box tl-right reveal d1"><div class="tl-year">2024–2025 — Reifephase</div><h3>Wachstum &amp; Vertiefung</h3><p>SunfishDesk wächst zum vollständigen Produktkonzept. Neue Module für Automatisierungen, Servicekataloge und strukturierte Workflows ergänzen das System. Was als Projekt begann, wird zur Plattform.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-box reveal"><div class="tl-year">2025 — Heute</div><h3>SunfishDesk als Unternehmen</h3><p>SunfishDesk steht heute für eine klare Haltung: Digitalisierung von Supportprozessen muss durchdacht, nutzerzentriert und nachhaltig sein. Das Team entwickelt aktiv an der nächsten Generation smarter Helpdesk- und Wissensmanagementsysteme.</p></div>
+        <div class="tl-dot" style="background:var(--cyan);box-shadow:0 0 0 4px rgba(6,182,212,.2);"></div><div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICES ═══════════════════════════════════════════════ -->
+<section class="section glow-center" id="leistungen">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Leistungen</span>
+      <h2 class="h2">Was SunfishDesk leistet.</h2>
+      <p>Von der einzelnen Funktion bis zur vollständigen Plattform – klicken Sie auf eine Leistung, um mehr zu erfahren.</p>
+    </div>
+    <div class="services-grid">
+
+      <a href="leistungen/helpdesk-systeme.html" class="svc-card reveal">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Helpdesk-Systeme</h3>
+        <p>Strukturierte Ticketverwaltung mit Priorisierung, Zuweisung und Statusverfolgung. Vom ersten Request bis zur Lösung lückenlos dokumentiert.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/wissensdatenbanken.html" class="svc-card reveal d1">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Wissensdatenbanken</h3>
+        <p>Zentrales Wissensmanagement mit Kategorisierung, Volltextsuche und Versionierung. Wissen, das im Team bleibt und gefunden wird.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/serviceportale.html" class="svc-card reveal d2">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Interne Serviceportale</h3>
+        <p>Zentrale Anlaufstelle für alle internen Anfragen, Prozesse und Ressourcen. Selbsterklärend, strukturiert und entlastend.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/prozessdigitalisierung.html" class="svc-card reveal">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Prozessdigitalisierung</h3>
+        <p>Analoge oder unstrukturierte Abläufe werden in klare, digitale Prozesse überführt. Engpässe identifizieren, Abläufe optimieren.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/support-workflows.html" class="svc-card reveal d1">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Support-Workflows</h3>
+        <p>Durchdachte Eskalationspfade, SLA-Definitionen und Routing-Logik – damit jede Anfrage den richtigen Weg nimmt.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/automatisierungen.html" class="svc-card reveal d2">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+        <h3>Automatisierungen</h3>
+        <p>Wiederkehrende Aufgaben automatisch delegieren, Benachrichtigungen regelbasiert auslösen, Tickets intelligent zuweisen.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/informationsverwaltung.html" class="svc-card reveal">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>Informationsverwaltung</h3>
+        <p>Dokumente, Anleitungen und FAQs zentral verwalten – mit Hierarchie, Zugriffsrechten und Aktualitätskontrolle.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="leistungen/individuelle-software.html" class="svc-card reveal d1">
+        <div class="svc-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Individuelle Softwarelösungen</h3>
+        <p>Wenn Standardprodukte nicht reichen – maßgeschneiderte Module exakt auf die Anforderungen der jeweiligen Organisation.</p>
+        <span class="svc-link">Details ansehen <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY ════════════════════════════════════════════════════ -->
+<section class="section section-alt glow-left" id="vorteile">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Warum SunfishDesk</span>
+      <h2 class="h2">Sechs Gründe, die den Unterschied machen.</h2>
+      <p>Was SunfishDesk von generischen Lösungen unterscheidet, liegt nicht im Feature-Set – es liegt in der Haltung dahinter.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h3>Strukturiert von Grund auf</h3><p>SunfishDesk wurde prozessgetrieben, nicht feature-getrieben gebaut. Jede Funktion hat eine klare Aufgabe. Das Ergebnis: ein System, das sich selbst erklärt.</p></div>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div><h3>Praxisnah entwickelt</h3><p>Entstanden aus echter Projekterfahrung, nicht aus dem Lehrbuch. SunfishDesk kennt die Probleme, die in der Praxis auftauchen – weil wir sie selbst erlebt haben.</p></div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div><h3>Skalierbar ohne Kompromisse</h3><p>Von kleinen Teams bis zu komplexen Organisationsstrukturen – SunfishDesk wächst mit. Die Architektur ist auf Skalierbarkeit ausgelegt, ohne die Übersicht zu verlieren.</p></div>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <div><h3>Benutzerfreundlich per Design</h3><p>Ein System nützt nichts, wenn es niemand benutzen will. Wir designen für echte Menschen im Arbeitsalltag – mit minimaler Lernkurve und maximaler Klarheit.</p></div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><h3>Modern &amp; technisch auf dem Stand</h3><p>Aktuelle Technologien, zeitgemäße Architektur. Kein Legacy-Ballast, keine veralteten Paradigmen – Software, die heute und morgen funktioniert.</p></div>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="why-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h3>Für echte Teams gebaut</h3><p>SunfishDesk denkt in Rollen, Zuständigkeiten und Zusammenarbeit – für alle, die Prozesse sauber strukturieren und Wissen nachhaltig verwalten wollen.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ STATS ══════════════════════════════════════════════════ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal"><div class="stat-val">8 +</div><div class="stat-lbl">Leistungsmodule</div></div>
+      <div class="reveal d1"><div class="stat-val">&lt; 2 h</div><div class="stat-lbl">Durchschnittliche Response-Zeit</div></div>
+      <div class="reveal d2"><div class="stat-val">63 %</div><div class="stat-lbl">Automationsquote im Betrieb</div></div>
+      <div class="reveal d3"><div class="stat-val">100 %</div><div class="stat-lbl">Fokus auf Nutzerfreundlichkeit</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TEAM ═══════════════════════════════════════════════════ -->
+<section class="section glow-center" id="team">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Das Team</span>
+      <h2 class="h2">Zwei Perspektiven. Eine Haltung.</h2>
+      <p>SunfishDesk entsteht aus der Kombination technischer Tiefe und konsequentem Produktdenken. Beide Gründer bringen komplementäre Stärken – und ein gemeinsames Verständnis davon, was gute Software ausmacht.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="tc-head">
+          <img class="avatar" src="paul.png" alt="Paul Lang" onerror="this.outerHTML='<div class=\'avatar-initials\'>PL</div>'">
+          <div class="tc-name">Paul Lang</div>
+          <div class="tc-role">Co-Founder · Head of Engineering</div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-bio">Paul Lang ist die technische Architektur hinter SunfishDesk. Mit einem ausgeprägten Sinn für sauberen Code, durchdachte Systemlogik und nutzerzentriertes Interface-Design entwickelt er Softwarelösungen, die nicht nur funktionieren – sondern überzeugen.</p>
+          <p class="tc-bio">Seine Stärke liegt in der Verbindung von technischer Präzision und strategischem Denken: Paul sieht nicht nur den Code, sondern das System dahinter. Er baut Infrastruktur, die wächst, ohne zu kippen – und Interfaces, die Menschen gerne benutzen.</p>
+          <p class="tc-bio" style="margin-bottom:1.4rem;">Von der Datenbankarchitektur bis zum finalen UI-Detail führt er die technische Entwicklung mit dem Anspruch, dass jede Entscheidung im Dienst der Nutzbarkeit steht.</p>
+          <div class="skills">
+            <span class="skill">Softwarearchitektur</span>
+            <span class="skill">Full-Stack Entwicklung</span>
+            <span class="skill">Prozessautomatisierung</span>
+            <span class="skill">UI/UX Engineering</span>
+            <span class="skill">Systemdesign</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="tc-head">
+          <img class="avatar" src="dennis.png" alt="Dennis Singer" onerror="this.outerHTML='<div class=\'avatar-initials\'>DS</div>'">
+          <div class="tc-name">Dennis Singer</div>
+          <div class="tc-role">Co-Founder · Head of Product &amp; Strategy</div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-bio">Dennis Singer ist der Denker, der Macher und der Strukturgeber im Team. Er verbindet ein tiefes Verständnis für Produktlogik mit operativer Konsequenz – und sorgt dafür, dass aus guten Ideen echte, nutzbare Systeme werden.</p>
+          <p class="tc-bio">Seine Arbeitsweise ist geprägt von Klarheit: klare Anforderungen, klare Prozesse, klare Ergebnisse. Dennis denkt in Strukturen, die skalieren, in Abläufen, die tragen, und in Nutzerbedürfnissen, die nicht auf dem Papier enden.</p>
+          <p class="tc-bio" style="margin-bottom:1.4rem;">Als strategischer Kopf hinter dem Produktkonzept verantwortet er die entscheidende Frage: Was braucht der Nutzer wirklich – und wie bauen wir genau das?</p>
+          <div class="skills">
+            <span class="skill">Produktstrategie</span>
+            <span class="skill">Projektsteuerung</span>
+            <span class="skill">Prozessdesign</span>
+            <span class="skill">Nutzerforschung</span>
+            <span class="skill">Operative Umsetzung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ VISION & MISSION ═══════════════════════════════════════ -->
+<section class="section section-alt glow-right" id="vision">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Vision &amp; Mission</span>
+      <h2 class="h2">Wofür wir stehen. Wohin wir wollen.</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card vm-v reveal">
+        <span class="vm-lbl">Unsere Vision</span>
+        <h3>Eine Welt, in der strukturiertes Wissen keine Ausnahme ist – sondern Standard.</h3>
+        <p>Wir glauben, dass Organisationen dann am besten funktionieren, wenn Wissen fließt, Prozesse klar sind und Menschen die Werkzeuge haben, die sie wirklich brauchen. SunfishDesk will genau das möglich machen – für kleine Teams genauso wie für komplexe Organisationsstrukturen.</p>
+      </div>
+      <div class="vm-card vm-m reveal d2">
+        <span class="vm-lbl">Unsere Mission</span>
+        <h3>Smarte, strukturierte und nachhaltig nutzbare Softwarelösungen für Support und Wissensmanagement entwickeln.</h3>
+        <p>Wir entwickeln Systeme, die in der Praxis halten, was sie versprechen. Kein Over-Engineering, keine unnötige Komplexität – sondern durchdachte Lösungen, die echten Mehrwert schaffen. Dabei stellen wir immer den Menschen in den Mittelpunkt: das Team, das täglich damit arbeitet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ USE CASES ══════════════════════════════════════════════ -->
+<section class="section glow-left" id="einsatz">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Einsatzbereiche</span>
+      <h2 class="h2">SunfishDesk im echten Einsatz.</h2>
+      <p>Von der Bildungseinrichtung bis zum wachsenden Unternehmen – SunfishDesk passt sich den Anforderungen an, nicht umgekehrt.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card reveal">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Mittelständische Unternehmen</h3><p>Strukturiertes Ticketsystem, interne Wissensbasis und klare Prozessdokumentation – für Betriebe, die wachsen und dabei die Übersicht behalten wollen.</p>
+      </div>
+      <div class="uc-card reveal d1">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Bildungseinrichtungen</h3><p>Schulen, Hochschulen und Bildungsträger nutzen SunfishDesk für strukturierte Informationsverteilung, FAQ-Systeme und Anfrageverwaltung.</p>
+      </div>
+      <div class="uc-card reveal d2">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>Interne IT-Teams</h3><p>Helpdesk-Systeme mit SLA-Unterstützung, Eskalationslogik und automatisierten Workflows – damit interne IT-Abteilungen effizient arbeiten.</p>
+      </div>
+      <div class="uc-card reveal">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Vereine &amp; Organisationen</h3><p>Ehrenamtliche Strukturen brauchen klare Abläufe. SunfishDesk schafft Transparenz und zentralisiert Informationen erheblich.</p>
+      </div>
+      <div class="uc-card reveal d1">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>Wachsende Start-ups</h3><p>In der Skalierungsphase ist Struktur kein Luxus, sondern Notwendigkeit. SunfishDesk gibt jungen Unternehmen die Infrastruktur, um Wachstum ohne Chaos zu managen.</p>
+      </div>
+      <div class="uc-card reveal d2">
+        <div class="uc-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Dezentrale &amp; remote Teams</h3><p>Wenn Teams über Standorte und Zeitzonen verteilt sind, wird Wissenssicherung kritisch. SunfishDesk ist der gemeinsame Anker für alle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TESTIMONIALS ═══════════════════════════════════════════ -->
+<section class="section section-alt glow-center">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Stimmen</span>
+      <h2 class="h2">Was andere sagen.</h2>
+      <p>Einblicke aus Praxisprojekten und Projektbewertungen.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-q">"</div>
+        <p class="test-text">SunfishDesk hat uns gezeigt, wie strukturiertes Wissensmanagement in der Praxis aussehen kann. Das Konzept ist durchdacht, die Umsetzung überzeugend – und der Anspruch an Qualität ist in jedem Detail spürbar.</p>
+        <div class="test-author"><div class="test-av">FP</div><div><div class="test-name">F. Pfeil</div><div class="test-org">Lehrkraft, KHS Donaueschingen</div></div></div>
+      </div>
+      <div class="test-card reveal d1">
+        <div class="test-q">"</div>
+        <p class="test-text">Was mich beeindruckt hat: Die beiden haben nicht einfach ein Feature gebaut. Sie haben ein System gedacht. Das merkt man an der Architektur, an den Designentscheidungen und an der konsequenten Nutzerorientierung.</p>
+        <div class="test-author"><div class="test-av">UM</div><div><div class="test-name">U. Meinicke</div><div class="test-org">Lehrkraft, KHS Donaueschingen</div></div></div>
+      </div>
+      <div class="test-card reveal d2">
+        <div class="test-q">"</div>
+        <p class="test-text">Selten sieht man bei einem frühen Produktkonzept bereits eine so klare Positionierung. SunfishDesk hat das Potenzial, in seiner Kategorie zu einem echten Standard zu werden.</p>
+        <div class="test-author"><div class="test-av">TS</div><div><div class="test-name">T. Strittmatter</div><div class="test-org">Lehrkraft, KHS Donaueschingen</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════════════════════════════════════════════════════ -->
+<section class="cta" id="kontakt-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="label" style="margin:0 auto 1.5rem;display:table;">Jetzt starten</div>
+      <h2 class="h2">Bereit für mehr Struktur?</h2>
+      <p class="body-lg">Ob konkretes Projekt, offene Frage oder mögliche Zusammenarbeit – wir freuen uns auf den Austausch.</p>
+      <div class="cta-acts">
+        <a href="kontakt.html" class="btn btn-primary">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Kontakt aufnehmen
+        </a>
+        <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ═════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="neues_logo.png" alt="SunfishDesk">
+          <span>SunfishDesk</span>
+        </div>
+        <p>Strukturiertes Wissensmanagement und intelligente Helpdesk-Systeme – entwickelt mit dem Anspruch, in der Praxis wirklich zu funktionieren.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="leistungen/helpdesk-systeme.html">Helpdesk-Systeme</a></li>
+          <li><a href="leistungen/wissensdatenbanken.html">Wissensdatenbanken</a></li>
+          <li><a href="leistungen/serviceportale.html">Serviceportale</a></li>
+          <li><a href="leistungen/automatisierungen.html">Automatisierungen</a></li>
+          <li><a href="leistungen/individuelle-software.html">Individuelle Lösungen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="#geschichte">Geschichte</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#vision">Vision &amp; Mission</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SunfishDesk · Paul Lang &amp; Dennis Singer · Alle Rechte vorbehalten.</p>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const hbg=document.getElementById('hbg'),mmenu=document.getElementById('mmenu');
+  hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mmenu.classList.toggle('open');});
+  function closeMM(){hbg.classList.remove('open');mmenu.classList.remove('open');}
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const h=a.getAttribute('href');if(h==='#')return;
+    const t=document.querySelector(h);if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-68,behavior:'smooth'});}
+  }));
+</script>
+</body>
+</html>
