@@ -6,7 +6,7 @@
   <title>Automatisierungen – SunfishDesk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <div id="fish-cursor"></div>
@@ -42,13 +42,13 @@ function animate() {
   // Bild wechseln, je nachdem auf welcher Seite der Fisch ist
   // Fisch links vom Cursor -> soll nach rechts schauen -> cursor_right.png
   if (currentX < mouseX && facing !== "right") {
-    fish.style.backgroundImage = "url('cursor_right.png')";
+    fish.style.backgroundImage = "url('../assets/img/cursor_right.png')";
     facing = "right";
   }
 
   // Fisch rechts vom Cursor -> soll nach links schauen -> cursor.png
   if (currentX >= mouseX && facing !== "left") {
-    fish.style.backgroundImage = "url('cursor.png')";
+    fish.style.backgroundImage = "url('../assets/img/cursor.png')";
     facing = "left";
   }
 
@@ -88,7 +88,7 @@ animate();
   <nav id="nav">
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">
-        <img src="../neues_logo.png" alt="SunfishDesk Logo">
+        <img src="../assets/img/neues_logo.png" alt="SunfishDesk Logo">
         <span class="nav-logo-text">SunfishDesk</span>
       </a>
       <ul class="nav-links">
@@ -317,7 +317,7 @@ animate();
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-brand-logo"><img src="../neues_logo.png" alt="SunfishDesk"><span>SunfishDesk</span></div>
+          <div class="footer-brand-logo"><img src="../assets/img/neues_logo.png" alt="SunfishDesk"><span>SunfishDesk</span></div>
           <p>Strukturiertes Wissensmanagement und intelligente Helpdesk-Systeme – entwickelt mit dem Anspruch, in der Praxis wirklich zu funktionieren.</p>
         </div>
         <div class="footer-col"><h4>Leistungen</h4><ul>
