@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 
@@ -46,13 +46,13 @@ function animate() {
   // Bild wechseln, je nachdem auf welcher Seite der Fisch ist
   // Fisch links vom Cursor -> soll nach rechts schauen -> cursor_right.png
   if (currentX < mouseX && facing !== "right") {
-    fish.style.backgroundImage = "url('cursor_right.png')";
+    fish.style.backgroundImage = "url('assets/img/cursor_right.png')";
     facing = "right";
   }
 
   // Fisch rechts vom Cursor -> soll nach links schauen -> cursor.png
   if (currentX >= mouseX && facing !== "left") {
-    fish.style.backgroundImage = "url('cursor.png')";
+    fish.style.backgroundImage = "url('assets/img/cursor.png')";
     facing = "left";
   }
 
@@ -90,12 +90,13 @@ animate();
 
 <body>
 
+<div id="bubbles" aria-hidden="true"></div>
+
 <!-- ════ NAVIGATION ════════════════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="neues_logo.png" alt="SunfishDesk Logo">
-      <span class="nav-logo-text">SunfishDesk</span>
+      <img src="assets/img/neues_logo.png" alt="SunfishDesk Logo">
     </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Startseite</a></li>
@@ -145,6 +146,16 @@ animate();
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <!-- Sky brightening overlay -->
+  <div class="hero-sky-overlay" aria-hidden="true"></div>
+  <!-- Underwater light shafts -->
+  <div class="light-rays" id="light-rays" aria-hidden="true">
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+  </div>
   <svg class="hero-fish" viewBox="0 0 560 440" fill="white" aria-hidden="true">
     <ellipse cx="240" cy="220" rx="195" ry="155"/>
     <path d="M415 220 Q480 130 520 75 Q498 165 520 220 Q498 278 520 368 Q480 312 415 220Z"/>
@@ -182,6 +193,80 @@ animate();
         <div class="hc-row"><span class="hc-lbl">Automationsquote</span><span class="hc-val">63 % <span class="badge badge-b">aktiv</span></span></div>
       </div>
     </div>
+  </div>
+
+  <!-- ── Beautiful ocean surface waves — 5 gradient layers + foam ── -->
+  <div class="ocean-surface-waves" aria-hidden="true">
+
+    <!-- L1 · Deep background swell — slowest, subtlest -->
+    <svg class="ocean-wave wave-l1" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#0A7AB8" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#054E80" stop-opacity="0.50"/>
+        </linearGradient>
+      </defs>
+      <path d="M-120,128 C60,168 300,88 540,132 C780,172 1020,85 1260,128 C1380,148 1450,130 1560,128 L1560,280 L-120,280 Z" fill="url(#wg1)"/>
+    </svg>
+
+    <!-- L2 · Mid-depth — irregular wavelength, longer swells -->
+    <svg class="ocean-wave wave-l2" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#0E8EC4" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#066090" stop-opacity="0.62"/>
+        </linearGradient>
+      </defs>
+      <path d="M-100,144 C80,188 360,100 620,148 C880,190 1100,96 1320,144 C1400,162 1470,148 1540,144 L1540,280 L-100,280 Z" fill="url(#wg2)"/>
+    </svg>
+
+    <!-- L3 · Middle wave — varied shape, asymmetric crests -->
+    <svg class="ocean-wave wave-l3" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#1098CC" stop-opacity="0.26"/>
+          <stop offset="100%" stop-color="#0878A8" stop-opacity="0.72"/>
+        </linearGradient>
+      </defs>
+      <path d="M-80,158 C100,196 340,110 600,162 C860,206 1060,106 1300,158 C1390,180 1460,162 1520,158 L1520,280 L-80,280 Z" fill="url(#wg3)"/>
+    </svg>
+
+    <!-- L4 · Surface — prominent, tighter crests -->
+    <svg class="ocean-wave wave-l4" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#14A6DA" stop-opacity="0.38"/>
+          <stop offset="45%"  stop-color="#0A90C2" stop-opacity="0.72"/>
+          <stop offset="100%" stop-color="#086EA4" stop-opacity="0.90"/>
+        </linearGradient>
+      </defs>
+      <path d="M-40,170 C100,205 320,132 540,174 C760,210 1000,128 1260,172 C1370,192 1430,174 1480,170 L1480,280 L-40,280 Z" fill="url(#wg4)"/>
+    </svg>
+
+    <!-- L5 · Front wave — the dominant crest, most visible -->
+    <svg class="ocean-wave wave-l5" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wg5" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#18B4E2" stop-opacity="0.58"/>
+          <stop offset="30%"  stop-color="#0D9CD0" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#0878AC" stop-opacity="0.97"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,184 C80,159 215,204 400,184 C585,164 740,208 930,184 C1120,160 1270,206 1410,184 C1432,176 1440,180 1440,184 L1440,280 L0,280 Z" fill="url(#wg5)"/>
+    </svg>
+
+    <!-- Foam · White crest shimmer — thin bright band at the surface break -->
+    <svg class="ocean-wave wave-foam" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wgFoam" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#FFFFFF"  stop-opacity="0.48"/>
+          <stop offset="40%"  stop-color="#C8EEFF"  stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="#0891B2"  stop-opacity="0.00"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,179 C65,168 175,186 310,179 C445,172 568,188 698,179 C828,170 955,188 1078,179 C1201,170 1322,188 1422,179 C1435,177 1440,179 1440,179 L1440,200 L0,200 Z" fill="url(#wgFoam)"/>
+    </svg>
+
   </div>
 </section>
 
@@ -237,7 +322,7 @@ animate();
         style="width:100%;display:block;position:relative;z-index:1;aspect-ratio:16/9;object-fit:cover;"
         poster=""
       >
-        <source src="Imagefilm_Erstellung_für_SunfishDesk.mp4" type="video/mp4">
+        <source src="assets/video/imagefilm.mp4" type="video/mp4">
         Ihr Browser unterstützt dieses Videoformat nicht.
       </video>
     </div>
@@ -451,7 +536,7 @@ animate();
     <div class="team-grid">
       <div class="team-card reveal">
         <div class="tc-head">
-          <img class="avatar" src="paul.png" alt="Paul Lang" onerror="this.outerHTML='<div class=\'avatar-initials\'>PL</div>'">
+          <img class="avatar" src="assets/img/paul.png" alt="Paul Lang" onerror="this.outerHTML='<div class=\'avatar-initials\'>PL</div>'">
           <div class="tc-name">Paul Lang</div>
           <div class="tc-role">Co-Founder · Head of Engineering</div>
         </div>
@@ -470,7 +555,7 @@ animate();
       </div>
       <div class="team-card reveal d2">
         <div class="tc-head">
-          <img class="avatar" src="dennis.png" alt="Dennis Singer" onerror="this.outerHTML='<div class=\'avatar-initials\'>DS</div>'">
+          <img class="avatar" src="assets/img/dennis.png" alt="Dennis Singer" onerror="this.outerHTML='<div class=\'avatar-initials\'>DS</div>'">
           <div class="tc-name">Dennis Singer</div>
           <div class="tc-role">Co-Founder · Head of Product &amp; Strategy</div>
         </div>
@@ -602,7 +687,7 @@ animate();
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-logo">
-          <img src="neues_logo.png" alt="SunfishDesk">
+          <img src="assets/img/neues_logo.png" alt="SunfishDesk">
           <span>SunfishDesk</span>
         </div>
         <p>Strukturiertes Wissensmanagement und intelligente Helpdesk-Systeme – entwickelt mit dem Anspruch, in der Praxis wirklich zu funktionieren.</p>
@@ -660,6 +745,57 @@ animate();
     const h=a.getAttribute('href');if(h==='#')return;
     const t=document.querySelector(h);if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-68,behavior:'smooth'});}
   }));
+
+  /* ── Ocean Atmosphere ───────────────────────────────────── */
+  (function(){
+    var bc   = document.getElementById('bubbles');
+    var rays = document.getElementById('light-rays');
+    var hero = document.querySelector('.hero');
+
+    // Spawn bubbles
+    if(bc){
+      for(var i=0;i<24;i++){
+        var b=document.createElement('div');
+        b.className='bubble';
+        var s=3+Math.random()*9;
+        var d=(Math.random()-.5)*55;
+        b.style.cssText=
+          'left:'+(4+Math.random()*92)+'%;'+
+          'width:'+s+'px;height:'+s+'px;'+
+          '--drift:'+d+'px;'+
+          'animation-delay:'+(Math.random()*24)+'s;'+
+          'animation-duration:'+(10+Math.random()*20)+'s;';
+        bc.appendChild(b);
+      }
+    }
+
+    // Update waterline-based effects on scroll
+    function onDepthScroll(){
+      if(!hero) return;
+      var heroH = hero.offsetHeight;
+      var scrollY = window.scrollY;
+
+      // --- Bubble clip: only show below the wave surface ---
+      // waterlineVP = where the wave bottom sits in the current viewport (px from top)
+      // At scroll=0 the wave is at heroH in page coords = heroH in viewport (≈ 100vh).
+      // As user scrolls, that point rises: waterlineVP = heroH - scrollY
+      if(bc){
+        var wlVP  = heroH - scrollY;          // px from top of viewport
+        var wlPct = Math.max(0, Math.min(100, (wlVP / window.innerHeight) * 100));
+        bc.style.clipPath = 'inset(' + wlPct.toFixed(1) + '% 0 0 0)';
+      }
+
+      // --- Light ray fade as user dives below the surface ---
+      if(rays){
+        var progress = Math.min(scrollY / (heroH * 0.65), 1);
+        rays.style.opacity = 1 - progress;
+      }
+    }
+
+    window.addEventListener('scroll', onDepthScroll, {passive:true});
+    window.addEventListener('resize', onDepthScroll, {passive:true});
+    onDepthScroll(); // initial call
+  })();
 </script>
 </body>
 </html>

@@ -31,16 +31,29 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--navy);
+  /* Ocean depth gradient — spans full page height so scrolling = diving */
+  background-color: #000203;
+  background-image:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(to bottom,
+      #06101E 0%,     /* dark twilight sky */
+      #091A32 6%,     /* deep night sky */
+      #0A2E55 16%,    /* gradual shift toward ocean — no bright spike */
+      #0891B2 26%,    /* shallow water */
+      #06608A 39%,
+      #0A3D6B 54%,
+      #061B3A 69%,
+      #030E22 81%,
+      #010508 92%,
+      #000203 100%
+    );
+  background-size: 64px 64px, 64px 64px, 100% 100%;
+  background-repeat: repeat, repeat, no-repeat;
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  /* Subtle grid texture throughout */
-  background-image:
-    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-  background-size: 64px 64px;
 }
 img { max-width: 100%; height: auto; display: block; }
 a  { text-decoration: none; }
@@ -75,7 +88,7 @@ p        { color: var(--text-sub); }
   background:radial-gradient(ellipse,rgba(8,145,178,.06) 0%,transparent 65%);
   pointer-events:none;
 }
-.section-alt { background: rgba(255,255,255,.025); }
+.section-alt { background: rgba(0,0,0,.18); }
 
 .section-header { text-align:center; max-width:680px; margin:0 auto 4rem; }
 .section-header p { color:var(--text-sub); margin-top:.875rem; }
@@ -112,10 +125,10 @@ nav {
   transition:var(--ease);
 }
 nav.scrolled {
-  background:rgba(11,29,53,.97);
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.07);
-  box-shadow:0 4px 28px rgba(0,0,0,.35);
+  background:rgba(5,20,42,.92);
+  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(6,182,212,.12);
+  box-shadow:0 4px 32px rgba(0,0,0,.45);
 }
 .nav-inner {
   display:flex; align-items:center; justify-content:space-between;
@@ -124,7 +137,7 @@ nav.scrolled {
 .nav-logo {
   display:flex; align-items:center; gap:.65rem; text-decoration:none; flex-shrink:0;
 }
-.nav-logo img { height:38px; width:auto; object-fit:contain; }
+.nav-logo img { height:52px; width:auto; object-fit:contain; }
 .nav-logo-text { font-size:1.2rem; font-weight:800; color:#fff; letter-spacing:-.03em; }
 
 /* Main links */
@@ -193,15 +206,17 @@ nav.scrolled {
 
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
-  min-height:100vh; background:var(--grad-hero);
+  min-height:100vh; background:transparent;
   display:flex; align-items:center; position:relative; overflow:hidden;
 }
 .hero-bg {
   position:absolute; inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 65% 50%,rgba(8,145,178,.16) 0%,transparent 60%),
-    radial-gradient(circle at 15% 80%,rgba(6,182,212,.1) 0%,transparent 40%),
-    radial-gradient(circle at 88% 12%,rgba(14,165,233,.08) 0%,transparent 30%);
+    /* Subtle moon/star glow — faint brightening in the dark sky */
+    radial-gradient(ellipse 120% 35% at 50% -5%, rgba(80,160,220,.12) 0%, transparent 55%),
+    /* Underwater light shimmer below the waves */
+    radial-gradient(ellipse 80% 60% at 65% 68%, rgba(8,145,178,.14) 0%, transparent 60%),
+    radial-gradient(circle at 12% 90%, rgba(6,182,212,.09) 0%, transparent 40%);
 }
 .hero-grid {
   position:absolute; inset:0;
@@ -695,9 +710,231 @@ footer {
   top: 0;
   width: 42px;
   height: 42px;
-  background: url('cursor.png') center/contain no-repeat;
+  background: url('../img/cursor.png') center/contain no-repeat;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-100px, -100px);
   will-change: transform;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   OCEAN ATMOSPHERE SYSTEM
+   ══════════════════════════════════════════════════════════ */
+
+/* Sky darkening layer — keeps the nav area dark enough for white text */
+.hero-sky-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 75%;
+  background: linear-gradient(
+    to bottom,
+    rgba(2,6,18,.72) 0%,     /* very dark for nav readability */
+    rgba(2,8,24,.55) 18%,
+    rgba(3,11,30,.28) 44%,
+    rgba(4,14,36,.06) 68%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Wave System ─────────────────────────────────────────────
+   5 gradient-filled SVG layers + foam + shimmering surface line
+   ──────────────────────────────────────────────────────────── */
+.ocean-surface-waves {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 280px;
+  z-index: 5;
+  pointer-events: none;
+  /* keep overflow visible so wide wave SVGs don't clip horizontally */
+  overflow: visible;
+}
+
+/* Horizon shimmer — pulsing glow line exactly at the waterline */
+.ocean-surface-waves::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(103,232,249,.35) 12%,
+    rgba(20,218,238,.95) 42%,
+    rgba(160,245,255,.80) 50%,
+    rgba(20,218,238,.95) 58%,
+    rgba(103,232,249,.35) 88%,
+    transparent 100%
+  );
+  filter: blur(1.5px);
+  z-index: 12;
+  animation: horizonPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes horizonPulse {
+  0%   { opacity: .55; transform: scaleX(1.00); }
+  50%  { opacity: 1.00; transform: scaleX(1.015); }
+  100% { opacity: .60; transform: scaleX(.990); }
+}
+
+/* All wave SVGs share the same base positioning */
+.ocean-wave {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  width: 100%; height: 100%;
+}
+
+/* ── Wave animation keyframes ────────────────────────────── */
+
+/* Gentle long-period swell */
+@keyframes waveA {
+  0%   { transform: translateX(0)      scaleY(1.000); }
+  30%  { transform: translateX(-1.8%)  scaleY(1.045); }
+  65%  { transform: translateX(1.4%)   scaleY(0.970); }
+  100% { transform: translateX(-2.2%)  scaleY(1.020); }
+}
+
+/* Shorter cross-chop */
+@keyframes waveB {
+  0%   { transform: translateX(0)     scaleY(1.000); }
+  25%  { transform: translateX(2.6%)  scaleY(1.075); }
+  60%  { transform: translateX(-1.2%) scaleY(0.938); }
+  100% { transform: translateX(2.0%)  scaleY(1.042); }
+}
+
+/* Complex surface churn — front waves */
+@keyframes waveC {
+  0%   { transform: translateX(0)      scaleY(1.000); }
+  20%  { transform: translateX(-3.0%)  scaleY(1.090); }
+  50%  { transform: translateX(2.2%)   scaleY(0.920); }
+  78%  { transform: translateX(-1.6%)  scaleY(1.055); }
+  100% { transform: translateX(2.8%)   scaleY(0.965); }
+}
+
+/* ── Per-layer timing ─────────────────────────────────────── */
+.wave-l1   { animation: waveA  24s ease-in-out          infinite; }
+.wave-l2   { animation: waveB  18s ease-in-out  1.6s    infinite; }
+.wave-l3   { animation: waveA  14s ease-in-out  0.9s    infinite reverse; }
+.wave-l4   { animation: waveC   9.5s ease-in-out 2.2s   infinite; }
+.wave-l5   { animation: waveB   6.5s ease-in-out 0.5s   infinite reverse; }
+.wave-foam { animation: waveC   5.0s ease-in-out 0.25s  infinite; }
+
+/* Underwater light shafts — fade out as user scrolls below hero */
+.light-rays {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.light-ray {
+  position: absolute;
+  top: -20%;
+  width: 70px;
+  height: 130%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.11) 0%,
+    rgba(255,255,255,.04) 45%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  animation: rayPulse 10s ease-in-out infinite alternate;
+}
+
+.light-ray:nth-child(1) { left: 7%;  transform: rotate(-10deg); animation-duration: 9s; }
+.light-ray:nth-child(2) { left: 22%; transform: rotate(-3deg);  animation-duration: 13s; animation-delay: 2s;   width: 95px; }
+.light-ray:nth-child(3) { left: 41%; transform: rotate( 2deg);  animation-duration: 11s; animation-delay: 1s;   }
+.light-ray:nth-child(4) { left: 60%; transform: rotate(-6deg);  animation-duration: 8s;  animation-delay: 3s;   width: 55px; }
+.light-ray:nth-child(5) { left: 80%; transform: rotate( 8deg);  animation-duration: 12s; animation-delay: 0.5s; }
+
+@keyframes rayPulse {
+  0%   { opacity: .20; }
+  45%  { opacity: .55; }
+  100% { opacity: .14; }
+}
+
+/* Floating bubbles — only visible below the waterline (clip updated via JS) */
+#bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0); /* fully hidden until JS sets waterline */
+}
+
+.bubble {
+  position: absolute;
+  bottom: -30px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255,255,255,.55),
+    rgba(255,255,255,.06)
+  );
+  border: 1px solid rgba(255,255,255,.22);
+  animation: bubbleFloat linear infinite;
+  opacity: 0;
+}
+
+@keyframes bubbleFloat {
+  0%   { transform: translateY(0px)              translateX(0px);             opacity: 0;    }
+  6%   { opacity: .42; }
+  88%  { opacity: .28; }
+  100% { transform: translateY(calc(-100vh - 60px)) translateX(var(--drift, 12px)); opacity: 0; }
+}
+
+/* Footer depth — deep sea styling */
+footer {
+  background: rgba(0,0,0,.5);
+  border-top: 1px solid rgba(6,182,212,.1);
+}
+
+/* CTA section — glass panel in the deep */
+.cta {
+  background: linear-gradient(135deg, rgba(6,182,212,.1) 0%, rgba(8,145,178,.05) 100%);
+  border-top: 1px solid rgba(6,182,212,.15);
+  border-bottom: 1px solid rgba(6,182,212,.08);
+}
+
+/* Glassmorphism on key interactive cards */
+.hero-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.15);
+}
+
+.svc-card,
+.why-item,
+.uc-card,
+.test-card,
+.tl-box,
+.vm-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Depth tint overlays — subtle darkening for deeper sections */
+#einsatz, #vision {
+  background: rgba(0,0,0,.12);
+}
+
+/* Trust bar — just below the waterline */
+.trust-bar {
+  background: rgba(8,145,178,.12);
+  border-top: 1px solid rgba(6,182,212,.18);
+  border-bottom: 1px solid rgba(6,182,212,.12);
+}
+
+/* Stats — glowing reef in deep water */
+.stats {
+  background: rgba(6,182,212,.04);
+  border-top: 1px solid rgba(8,145,178,.12);
+  border-bottom: 1px solid rgba(8,145,178,.12);
 }

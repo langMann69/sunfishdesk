@@ -6,7 +6,7 @@
   <title>Impressum – SunfishDesk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <div id="fish-cursor"></div>
@@ -42,13 +42,13 @@ function animate() {
   // Bild wechseln, je nachdem auf welcher Seite der Fisch ist
   // Fisch links vom Cursor -> soll nach rechts schauen -> cursor_right.png
   if (currentX < mouseX && facing !== "right") {
-    fish.style.backgroundImage = "url('cursor_right.png')";
+    fish.style.backgroundImage = "url('assets/img/cursor_right.png')";
     facing = "right";
   }
 
   // Fisch rechts vom Cursor -> soll nach links schauen -> cursor.png
   if (currentX >= mouseX && facing !== "left") {
-    fish.style.backgroundImage = "url('cursor.png')";
+    fish.style.backgroundImage = "url('assets/img/cursor.png')";
     facing = "left";
   }
 
@@ -88,7 +88,7 @@ animate();
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="neues_logo.png" alt="SunfishDesk Logo">
+      <img src="assets/img/neues_logo.png" alt="SunfishDesk Logo">
       <span class="nav-logo-text">SunfishDesk</span>
     </a>
     <ul class="nav-links">
@@ -183,7 +183,7 @@ animate();
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><div class="footer-brand-logo"><img src="neues_logo.png" alt="SunfishDesk"><span>SunfishDesk</span></div><p>Strukturiertes Wissensmanagement und intelligente Helpdesk-Systeme.</p></div>
+      <div class="footer-brand"><div class="footer-brand-logo"><img src="assets/img/neues_logo.png" alt="SunfishDesk"><span>SunfishDesk</span></div><p>Strukturiertes Wissensmanagement und intelligente Helpdesk-Systeme.</p></div>
       <div class="footer-col"><h4>Leistungen</h4><ul><li><a href="leistungen/helpdesk-systeme.html">Helpdesk-Systeme</a></li><li><a href="leistungen/wissensdatenbanken.html">Wissensdatenbanken</a></li><li><a href="leistungen/serviceportale.html">Serviceportale</a></li></ul></div>
       <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="index.html#about">Über uns</a></li><li><a href="index.html#team">Team</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
       <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li><li><a href="agb.html">AGB</a></li></ul></div>
