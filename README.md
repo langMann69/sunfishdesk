@@ -1,8 +1,9 @@
 
-<img width="6912" height="3456" alt="Design ohne Titel (6)" src="https://github.com/user-attachments/assets/2ee23be8-8488-4c60-a683-f89b6455bef3" />
+![Animated_Logo_GIF_Creation-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/59a25572-d057-4406-9ed4-396e9ee3ac71)
 
 
-# 🌊 SunfishDesk
+
+# SunfishDesk
 
 **SunfishDesk** is a creative SaaS landing page concept that combines modern tech design with an immersive ocean atmosphere.
 
