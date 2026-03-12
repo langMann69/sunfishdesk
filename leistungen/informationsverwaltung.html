@@ -8,6 +8,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
+
+
+<div id="fish-cursor"></div>
+<script>
+const fish = document.getElementById("fish-cursor");
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+
+let currentX = mouseX;
+let currentY = mouseY;
+let lastY = currentY;
+
+const speed = 0.015;
+
+// Merkt sich, welches Bild gerade aktiv ist
+let facing = "left";
+
+window.addEventListener("mousemove", function(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  // Langsames Folgen
+  currentX += (mouseX - currentX) * speed;
+  currentY += (mouseY - currentY) * speed;
+
+  // Deutliche Schwimmbewegung
+  const swimY = Math.sin(Date.now() * 0.006) * 14;
+  const swimX = Math.cos(Date.now() * 0.004) * 4;
+
+  // Bild wechseln, je nachdem auf welcher Seite der Fisch ist
+  // Fisch links vom Cursor -> soll nach rechts schauen -> cursor_right.png
+  if (currentX < mouseX && facing !== "right") {
+    fish.style.backgroundImage = "url('cursor_right.png')";
+    facing = "right";
+  }
+
+  // Fisch rechts vom Cursor -> soll nach links schauen -> cursor.png
+  if (currentX >= mouseX && facing !== "left") {
+    fish.style.backgroundImage = "url('cursor.png')";
+    facing = "left";
+  }
+
+  // Leichte Neigung nach oben / unten
+const dxToCursor = mouseX - currentX;
+const dyToCursor = mouseY - currentY;
+
+// Neigung abhängig von der Mausposition relativ zum Fisch
+let tilt = Math.atan2(dyToCursor, Math.abs(dxToCursor)) * (180 / Math.PI);
+
+// Maximalwinkel begrenzen
+if (tilt > 22) tilt = 22;
+if (tilt < -22) tilt = -22;
+
+// Wenn Fisch nach links schaut, muss die Rotation gespiegelt werden
+if (facing === "left") {
+  tilt = -tilt;
+}
+
+  const offsetX = -24;
+  const offsetY = -18;
+
+  fish.style.transform =
+    "translate(" + (currentX + offsetX + swimX) + "px," +
+    (currentY + offsetY + swimY) + "px) rotate(" + tilt + "deg)";
+
+  lastY = currentY;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
 <body class="service-page">
 
   <nav id="nav">
