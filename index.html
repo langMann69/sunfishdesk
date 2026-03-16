@@ -34,9 +34,9 @@ window.addEventListener("mousemove", function(e) {
   mouseY = e.clientY;
 });
 
-// Gibt die Y-Position der Wasserlinie zurück (Unterkante des animierten Trust-Banners)
+// Gibt die Y-Position der Wasserlinie zurück (Unterkante der animierten Wellen)
 function getWaterlineY() {
-  const surface = document.querySelector(".trust-bar");
+  const surface = document.querySelector(".ocean-surface-waves");
   if (!surface) return 0;
   return surface.getBoundingClientRect().bottom;
 }
