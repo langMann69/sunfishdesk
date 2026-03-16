@@ -919,3 +919,105 @@ footer {
   border-top: 1px solid rgba(8,145,178,.12);
   border-bottom: 1px solid rgba(8,145,178,.12);
 }
+
+/* ── SEABED — the user reaches the ocean floor ─────────────────────────────
+   Real seabed photo (assets/img/seabed.png) as background.
+
+   Layer stack (back → front):
+     .cta background    → image + top-fade that stays dark through content zone
+     .cta::before       → centered oval scrim (text readability) + light rays
+     .cta::after        → bottom vignette into the footer
+     .cta-inner z:1     → content, always on top
+────────────────────────────────────────────────────────────────────────── */
+
+/* 1 · Seabed image — overlay stays opaque through the content zone,
+        only opens up in the lower ~30% where the sandy floor is visible */
+.cta {
+  background:
+    linear-gradient(to bottom,
+      #000203              0%,    /* exact page bg — invisible seam at top  */
+      rgba(0, 2, 3, .97)   7%,
+      rgba(1, 5,14, .94)  18%,
+      rgba(2, 9,20, .90)  34%,   /* dark through text / content zone        */
+      rgba(2,10,22, .84)  50%,   /* ship silhouette ghosting through subtly  */
+      rgba(2,11,24, .52)  68%,   /* image begins to emerge — sandy floor    */
+      rgba(2,11,24, .14)  82%,
+      transparent         92%
+    ),
+    url('../img/seabed.png') bottom center / cover no-repeat;
+  border-top:    none;
+  border-bottom: none;
+}
+
+/* 2 · Centered oval scrim + light rays + sediment */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    /* Central dark oval — creates a natural reading area over the content.
+       Radius is wide enough to feel atmospheric, not like a card/box. */
+    radial-gradient(ellipse 72% 58% at 50% 38%,
+      rgba(0,4,14,.72)  0%,
+      rgba(0,4,14,.25) 55%,
+      transparent      100%),
+    /* Volumetric light shafts — barely perceptible, reinforce depth */
+    linear-gradient(170deg,
+      transparent 22%, rgba(6,182,212,.018) 22%,
+      rgba(6,182,212,.018) 23.5%, transparent 23.5%),
+    linear-gradient(166deg,
+      transparent 30%, rgba(8,145,178,.013) 30%,
+      rgba(8,145,178,.013) 32%,   transparent 32%),
+    linear-gradient(162deg,
+      transparent 16%, rgba(6,182,212,.011) 16%,
+      rgba(6,182,212,.011) 17.4%, transparent 17.4%),
+    /* Light-source diffusion from above */
+    radial-gradient(ellipse 50% 28% at 36% 0%, rgba(6,182,212,.06) 0%, transparent 100%),
+    /* Sediment motes — only in the lower/visible zone */
+    radial-gradient(circle 2px at  8% 78%, rgba(145,185,225,.18) 0%, transparent 100%),
+    radial-gradient(circle 2px at 19% 86%, rgba(125,168,215,.14) 0%, transparent 100%),
+    radial-gradient(circle 3px at 31% 74%, rgba(132,175,218,.11) 0%, transparent 100%),
+    radial-gradient(circle 2px at 54% 82%, rgba(115,158,206,.13) 0%, transparent 100%),
+    radial-gradient(circle 2px at 67% 76%, rgba(118,160,208,.12) 0%, transparent 100%),
+    radial-gradient(circle 3px at 80% 88%, rgba(128,170,214,.10) 0%, transparent 100%),
+    radial-gradient(circle 2px at 92% 80%, rgba(110,155,204,.13) 0%, transparent 100%);
+  animation: seabedCaustic 10s ease-in-out infinite;
+}
+
+/* 3 · Bottom vignette — darkens the floor edge to blend into the footer */
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(to top,
+    rgba(0,2,3,.80)  0%,
+    transparent      100%
+  );
+}
+
+/* Caustic shimmer — slow opacity breath, simulates light through water */
+@keyframes seabedCaustic {
+  0%   { opacity: 1;   }
+  50%  { opacity: .82; }
+  100% { opacity: 1;   }
+}
+
+/* Text readability over the seabed image — subtle glow/shadow so lettering
+   pops against both the dark overlay and any image bleed-through */
+.cta h2 {
+  text-shadow: 0 2px 24px rgba(0,4,14,.80), 0 1px 6px rgba(0,4,14,.60);
+}
+.cta p {
+  color: rgba(255,255,255,.82);   /* brighter than the base .60 */
+  text-shadow: 0 1px 12px rgba(0,4,14,.70);
+}
+.cta .label {
+  text-shadow: 0 1px 8px rgba(0,4,14,.60);
+}
