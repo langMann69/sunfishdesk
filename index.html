@@ -34,10 +34,42 @@ window.addEventListener("mousemove", function(e) {
   mouseY = e.clientY;
 });
 
+// Gibt die Y-Position der Wasseroberfläche zurück (Oberkante des Elements)
+function getWaterlineY() {
+  const surface = document.querySelector(".ocean-surface-waves");
+  if (!surface) return 0;
+  return surface.getBoundingClientRect().top;
+}
+
 function animate() {
-  // Langsames Folgen
-  currentX += (mouseX - currentX) * speed;
-  currentY += (mouseY - currentY) * speed;
+  const waterlineY = getWaterlineY();
+
+  // Cursor ist unter Wasser → Fisch folgt dem Cursor
+  // Cursor ist über Wasser → Fisch driftet ruhig knapp unter der Oberfläche
+  const cursorUnderwater = mouseY > waterlineY;
+
+  // Zielposition bestimmen
+  // offsetY = -18, swimY max ±14 → Fisch-Oberkante ≈ currentY - 32 px
+  // Mindest-currentY so wählen, dass der Fisch nie über die Wasseroberfläche ragt
+  const minCurrentY = waterlineY + 35;
+
+  let targetX, targetY;
+  if (cursorUnderwater) {
+    targetX = mouseX;
+    targetY = mouseY;
+  } else {
+    // Fisch bleibt ruhig knapp unter der Oberfläche,
+    // folgt der Maus aber horizontal (wirkt natürlich/neugierig)
+    targetX = mouseX;
+    targetY = waterlineY + 80;
+  }
+
+  // Langsames Folgen (gleiche Geschwindigkeit wie bisher)
+  currentX += (targetX - currentX) * speed;
+  currentY += (targetY - currentY) * speed;
+
+  // Fisch darf nie über die Wasseroberfläche steigen
+  if (currentY < minCurrentY) currentY = minCurrentY;
 
   // Deutliche Schwimmbewegung
   const swimY = Math.sin(Date.now() * 0.006) * 14;
@@ -45,32 +77,32 @@ function animate() {
 
   // Bild wechseln, je nachdem auf welcher Seite der Fisch ist
   // Fisch links vom Cursor -> soll nach rechts schauen -> cursor_right.png
-  if (currentX < mouseX && facing !== "right") {
+  if (currentX < targetX && facing !== "right") {
     fish.style.backgroundImage = "url('assets/img/cursor_right.png')";
     facing = "right";
   }
 
   // Fisch rechts vom Cursor -> soll nach links schauen -> cursor.png
-  if (currentX >= mouseX && facing !== "left") {
+  if (currentX >= targetX && facing !== "left") {
     fish.style.backgroundImage = "url('assets/img/cursor.png')";
     facing = "left";
   }
 
   // Leichte Neigung nach oben / unten
-const dxToCursor = mouseX - currentX;
-const dyToCursor = mouseY - currentY;
+  const dxToCursor = targetX - currentX;
+  const dyToCursor = targetY - currentY;
 
-// Neigung abhängig von der Mausposition relativ zum Fisch
-let tilt = Math.atan2(dyToCursor, Math.abs(dxToCursor)) * (180 / Math.PI);
+  // Neigung abhängig von der Mausposition relativ zum Fisch
+  let tilt = Math.atan2(dyToCursor, Math.abs(dxToCursor)) * (180 / Math.PI);
 
-// Maximalwinkel begrenzen
-if (tilt > 22) tilt = 22;
-if (tilt < -22) tilt = -22;
+  // Maximalwinkel begrenzen
+  if (tilt > 22) tilt = 22;
+  if (tilt < -22) tilt = -22;
 
-// Wenn Fisch nach links schaut, muss die Rotation gespiegelt werden
-if (facing === "left") {
-  tilt = -tilt;
-}
+  // Wenn Fisch nach links schaut, muss die Rotation gespiegelt werden
+  if (facing === "left") {
+    tilt = -tilt;
+  }
 
   const offsetX = -24;
   const offsetY = -18;
